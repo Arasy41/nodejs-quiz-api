@@ -4,6 +4,7 @@ const app = express();
 const port = 5000;
 const quizRoute = require("./router/quiz.route");
 const jobsheetRoute = require("./router/jobsheet.route");
+const swaggerDocs = require("./swagger");
 const ngrok = require("@ngrok/ngrok");
 
 app.use(cors());
@@ -21,6 +22,9 @@ app.get("/", (req, res) => {
 
 app.use("/api/quizzes", quizRoute);
 app.use("/api/jobsheet", jobsheetRoute);
+
+// Set up Swagger
+swaggerDocs(app);
 
 app.listen(port, () =>
   console.log(`App Listening on port http://localhost:${port}`)

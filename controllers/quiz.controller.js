@@ -62,7 +62,7 @@ exports.delete = async (req, res) => {
     quiz.destroy();
 
     res.json({
-      message: "Quizzes deleted succesfully",
+      message: `Data dengan id = ${id} telah berhasil dihapus`,
     });
   } catch (error) {
     res.status(500).json({
